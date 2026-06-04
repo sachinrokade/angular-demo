@@ -14,6 +14,12 @@ export class EmployeeComponent {
     age: 30,
     position: "Software Engineer"
    }
+
+   employees = [
+    { name: "Alice Smith", age: 28, position: "UI/UX Designer" },
+    { name: "Bob Johnson", age: 35, position: "Project Manager" },
+    { name: "Charlie Brown", age: 25, position: "QA Engineer" }
+   ]
    getEmployeeDetails(){
     console.log("Employee Component Details: ", this.employee);
    }

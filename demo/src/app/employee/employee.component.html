@@ -1,2 +1,10 @@
 <p>employee works {{title}}!</p>
 <p>{{ emp_data }}</p>
+<div>
+    <h3>Employee List:</h3>
+    <ul>
+        <li *ngFor="let emp of employees; index as i">
+        {{ i + 1 }} - {{ emp.name }} - {{ emp.position }} (Age: {{ emp.age }})
+        </li>
+    </ul>
+</div>

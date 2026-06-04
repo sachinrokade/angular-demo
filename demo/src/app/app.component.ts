@@ -14,7 +14,6 @@ export class AppComponent {
   ngAfterViewInit() {
    console.log("Accessing Employee Component from Parent Component: ", this.employee);
     this.employee.getEmployeeDetails();
-    this.employee.
   }
 
 }
