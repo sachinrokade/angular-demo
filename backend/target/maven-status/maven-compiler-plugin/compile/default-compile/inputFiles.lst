@@ -1,0 +1,8 @@
+/workspaces/angular-demo/backend/src/main/java/com/demo/db/DemoApplication.java
+/workspaces/angular-demo/backend/src/main/java/com/demo/db/config/CorsConfig.java
+/workspaces/angular-demo/backend/src/main/java/com/demo/db/config/DummyDataLoader.java
+/workspaces/angular-demo/backend/src/main/java/com/demo/db/config/MongoConfig.java
+/workspaces/angular-demo/backend/src/main/java/com/demo/db/controller/ProductController.java
+/workspaces/angular-demo/backend/src/main/java/com/demo/db/dto/Product.java
+/workspaces/angular-demo/backend/src/main/java/com/demo/db/repo/ProductRepository.java
+/workspaces/angular-demo/backend/src/main/java/com/demo/db/service/DataService.java

@@ -1,0 +1,9 @@
+com/demo/db/config/CorsConfig$1.class
+com/demo/db/config/MongoConfig.class
+com/demo/db/dto/Product.class
+com/demo/db/controller/ProductController.class
+com/demo/db/config/DummyDataLoader.class
+com/demo/db/config/CorsConfig.class
+com/demo/db/DemoApplication.class
+com/demo/db/repo/ProductRepository.class
+com/demo/db/config/DummyDataLoader$1.class

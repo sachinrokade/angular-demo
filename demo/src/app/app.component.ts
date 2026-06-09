@@ -7,13 +7,5 @@ import { EmployeeComponent } from './employee/employee.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  data = "Data from Parent Component Employee Name : John Doe";
-
-  @ViewChild(EmployeeComponent) employee!: EmployeeComponent;
-
-  ngAfterViewInit() {
-   console.log("Accessing Employee Component from Parent Component: ", this.employee);
-    this.employee.getEmployeeDetails();
-  }
 
 }
