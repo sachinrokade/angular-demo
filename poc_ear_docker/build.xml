@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hello-ear" default="all" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="test.src.dir" value="src-test"/>
+    <property name="web.dir" value="WebContent"/>
+    <property name="meta.dir" value="META-INF"/>
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="test.classes.dir" value="${build.dir}/test-classes"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="servlet.api.jar" value="javax.servlet-api-3.1.0.jar"/>
+    <property name="servlet.api.url" value="https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.1.0/${servlet.api.jar}"/>
+    <property name="war.name" value="hello.war"/>
+    <property name="ear.name" value="hello-ear.ear"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+        <delete dir="${lib.dir}"/>
+    </target>
+
+    <target name="resolve-deps">
+        <mkdir dir="${lib.dir}"/>
+        <get src="${servlet.api.url}" dest="${lib.dir}/${servlet.api.jar}" skipexisting="true"/>
+    </target>
+
+    <target name="compile" depends="resolve-deps">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" source="1.8" target="1.8" includeantruntime="false">
+            <classpath>
+                <pathelement path="${lib.dir}/${servlet.api.jar}"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="compile-tests" depends="compile">
+        <mkdir dir="${test.classes.dir}"/>
+        <javac srcdir="${test.src.dir}" destdir="${test.classes.dir}" source="1.8" target="1.8" includeantruntime="false">
+            <classpath>
+                <pathelement path="${classes.dir}"/>
+                <pathelement path="${lib.dir}/${servlet.api.jar}"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="test" depends="compile-tests">
+        <java classname="com.example.hello.HelloServiceTest" fork="true" failonerror="true">
+            <classpath>
+                <pathelement path="${classes.dir}"/>
+                <pathelement path="${test.classes.dir}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="war" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <war destfile="${dist.dir}/${war.name}" webxml="${web.dir}/WEB-INF/web.xml">
+            <fileset dir="${web.dir}" excludes="WEB-INF/**"/>
+            <classes dir="${classes.dir}"/>
+        </war>
+    </target>
+
+    <target name="ear" depends="war">
+        <mkdir dir="${dist.dir}"/>
+        <ear destfile="${dist.dir}/${ear.name}" appxml="${meta.dir}/application.xml">
+            <fileset file="${dist.dir}/${war.name}"/>
+        </ear>
+    </target>
+
+    <target name="all" depends="test,ear"/>
+</project>

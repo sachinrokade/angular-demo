@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
 @RestController
+@CrossOrigin(origins = "https://redesigned-orbit-4j4xvgg99xrh7779-4200.app.github.dev/")
 @RequestMapping("/")
 public class ProductController {
 

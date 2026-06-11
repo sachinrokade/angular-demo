@@ -1,0 +1,7 @@
+{
+  "/api": {
+  "target": "https://redesigned-orbit-4j4xvgg99xrh7779-8080.app.github.dev/",
+  "secure": false,
+  "changeOrigin": true
+  }
+}

@@ -15,7 +15,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")  // ✅ allow all endpoints
-                        .allowedOrigins("https://r-bxxxxx-4200.app.github.dev") // your Angular URL
+                        .allowedOrigins("https://redesigned-orbit-4j4xvgg99xrh7779-4200.app.github.dev/") // your Angular URL
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
