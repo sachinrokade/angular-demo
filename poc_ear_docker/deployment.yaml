@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websphere-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: websphere-server
+  template:
+    metadata:
+      labels:
+        app: websphere-server
+    spec:
+      containers:
+      - name: websphere-server
+        image: sachinrokade/websphere-server:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9080
+        - containerPort: 9443
